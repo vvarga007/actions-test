@@ -1,0 +1,18 @@
+name: flux-validation
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  flux-validation:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout main branch.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Setup Flux CLI
+        uses: fluxcd/flux2/action@v2
